@@ -5,11 +5,14 @@ let styleSheet;
 
 if (typeof window !== "undefined") {
   styleSheet = (() => {
-    const style = document.createElement("style");
-    style.id = "RNMQCSS";
-    style.appendChild(document.createTextNode(""));
-    document.head.appendChild(style);
-    return style.sheet;
+    console.log('window', window);
+
+    //const style = document.createElement("style");
+    //style.id = "RNMQCSS-HERE";
+    //style.appendChild(document.createTextNode(""));
+    //document.head.appendChild(style);
+    //return style.sheet;
+    return {};
   })();
 }
 
@@ -22,7 +25,7 @@ export const addCss = (id, text) => {
     rules[id].text = (rules[id]?.text || "") + text;
 
     if (styleSheet) {
-      styleSheet.insertRule(text, (Object.keys(rules).length-1));
+      styleSheet.insertRule(text, (Object.keys(rules).length - 1));
     }
   }
 };
